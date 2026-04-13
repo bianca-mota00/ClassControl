@@ -1,9 +1,10 @@
 let professores = [];
 let sugestoes = [];
+let planos = [];
 
 // TROCAR TELA
 function trocarTela(tela) {
-    let telas = ['home', 'dashboard', 'professores', 'participacao'];
+    let telas = ['home', 'dashboard', 'professores', 'participacao', 'planejamento'];
 
     telas.forEach(t => {
         document.getElementById(t).style.display = 'none';
@@ -55,6 +56,42 @@ function mostrarSugestoes() {
 
     sugestoes.forEach(s => {
         lista.innerHTML += `<div>${s}</div>`;
+    });
+}
+
+// PLANEJAMENTO
+function addPlano() {
+    let tema = document.getElementById("tema").value;
+    let objetivo = document.getElementById("objetivo").value;
+    let conteudo = document.getElementById("conteudo").value;
+
+    if (!tema || !objetivo || !conteudo) return;
+
+    planos.push({
+        tema: tema,
+        objetivo: objetivo,
+        conteudo: conteudo
+    });
+
+    document.getElementById("tema").value = "";
+    document.getElementById("objetivo").value = "";
+    document.getElementById("conteudo").value = "";
+
+    mostrarPlanos();
+}
+
+function mostrarPlanos() {
+    let lista = document.getElementById("listaPlanos");
+    lista.innerHTML = "";
+
+    planos.forEach(p => {
+        lista.innerHTML += `
+            <div>
+                <strong>${p.tema}</strong><br>
+                Objetivo: ${p.objetivo}<br>
+                Conteúdo: ${p.conteudo}<br><br>
+            </div>
+        `;
     });
 }
 
