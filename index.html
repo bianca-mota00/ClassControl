@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portal de Gestão Escolar</title>
+</head>
+<body>
+
+<!-- MENU -->
+<div>
+    <button onclick="trocarTela('home')">Home</button>
+    <button onclick="trocarTela('dashboard')">Dashboard</button>
+    <button onclick="trocarTela('professores')">Professores</button>
+    <button onclick="trocarTela('participacao')">Participação</button>
+</div>
+
+<hr>
+
+<!-- TELAS -->
+
+<div id="home">
+    <h1>Bem-vindo</h1>
+</div>
+
+<div id="dashboard" style="display:none;">
+    <h1>Dashboard</h1>
+    <p>Total de professores: <span id="totalProfessores">0</span></p>
+</div>
+
+<div id="professores" style="display:none;">
+    <h1>Professores</h1>
+
+    <input id="nomeProfessor" placeholder="Nome do professor">
+    <button onclick="addProfessor()">Cadastrar</button>
+
+    <div id="listaProfessores"></div>
+</div>
+
+<div id="participacao" style="display:none;">
+    <h1>Participação</h1>
+
+    <textarea id="textoSugestao" placeholder="Digite uma sugestão"></textarea>
+    <br>
+    <button onclick="addSugestao()">Enviar</button>
+
+    <div id="listaSugestoes"></div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
