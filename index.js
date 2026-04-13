@@ -2,6 +2,25 @@ let professores = [];
 let sugestoes = [];
 let planos = [];
 
+// LOGIN
+let usuarioLogado = "";
+
+function fazerLogin() {
+    let user = document.getElementById("usuario").value;
+    let senha = document.getElementById("senha").value;
+
+    if (user === "" || senha === "") {
+        alert("Preencha todos os campos!");
+        return;
+    }
+
+    usuarioLogado = user;
+
+    document.getElementById("usuarioLogadoTexto").innerText = "Logado como: " + user;
+    document.getElementById("login").style.display = "none";
+    document.getElementById("sistema").style.display = "block";
+}
+
 // TROCAR TELA
 function trocarTela(tela) {
     let telas = ['home', 'dashboard', 'professores', 'participacao', 'planejamento'];

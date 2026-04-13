@@ -5,60 +5,77 @@
 </head>
 <body>
 
-<!-- MENU -->
-<div>
-    <button onclick="trocarTela('home')">Home</button>
-    <button onclick="trocarTela('dashboard')">Dashboard</button>
-    <button onclick="trocarTela('professores')">Professores</button>
-    <button onclick="trocarTela('participacao')">Participação</button>
-    <button onclick="trocarTela('planejamento')">Planejamento</button>
-</div>
-
-<hr>
-
-<!-- TELAS -->
-
-<div id="home">
+<!-- LOGIN -->
+<div id="login">
     <h1>Bem-vindo</h1>
+    <p>Portal de Gestão Escolar</p>
+
+    <input id="usuario" placeholder="Usuário"><br><br>
+    <input id="senha" type="password" placeholder="Senha"><br><br>
+
+    <button onclick="fazerLogin()">Entrar</button>
 </div>
 
-<div id="dashboard" style="display:none;">
-    <h1>Dashboard</h1>
-    <p>Total de professores: <span id="totalProfessores">0</span></p>
-</div>
+<!-- SISTEMA -->
+<div id="sistema" style="display:none;">
 
-<div id="professores" style="display:none;">
-    <h1>Professores</h1>
+    <p id="usuarioLogadoTexto"></p>
+    <button onclick="logout()">Sair</button>
 
-    <input id="nomeProfessor" placeholder="Nome do professor">
-    <button onclick="addProfessor()">Cadastrar</button>
+    <!-- MENU -->
+    <div>
+        <button onclick="trocarTela('home')">Home</button>
+        <button onclick="trocarTela('dashboard')">Dashboard</button>
+        <button onclick="trocarTela('professores')">Professores</button>
+        <button onclick="trocarTela('participacao')">Participação</button>
+        <button onclick="trocarTela('planejamento')">Planejamento</button>
+    </div>
 
-    <div id="listaProfessores"></div>
-</div>
+    <hr>
 
-<div id="participacao" style="display:none;">
-    <h1>Participação</h1>
+    <!-- TELAS -->
 
-    <textarea id="textoSugestao" placeholder="Digite uma sugestão"></textarea>
-    <br>
-    <button onclick="addSugestao()">Enviar</button>
+    <div id="home">
+        <h1>Bem-vindo ao sistema</h1>
+    </div>
 
-    <div id="listaSugestoes"></div>
-</div>
+    <div id="dashboard" style="display:none;">
+        <h1>Dashboard</h1>
+        <p>Total de professores: <span id="totalProfessores">0</span></p>
+    </div>
 
-<div id="planejamento" style="display:none;">
-    <h1>Planejamento de Aula</h1>
+    <div id="professores" style="display:none;">
+        <h1>Professores</h1>
 
-    <input id="tema" placeholder="Tema da aula"><br><br>
-    <input id="objetivo" placeholder="Objetivo"><br><br>
-    <textarea id="conteudo" placeholder="Conteúdo"></textarea><br><br>
+        <input id="nomeProfessor" placeholder="Nome do professor">
+        <button onclick="addProfessor()">Cadastrar</button>
 
-    <button onclick="addPlano()">Adicionar Plano</button>
+        <div id="listaProfessores"></div>
+    </div>
 
-    <div id="listaPlanos"></div>
+    <div id="participacao" style="display:none;">
+        <h1>Participação</h1>
+
+        <textarea id="textoSugestao" placeholder="Digite uma sugestão"></textarea><br>
+        <button onclick="addSugestao()">Enviar</button>
+
+        <div id="listaSugestoes"></div>
+    </div>
+
+    <div id="planejamento" style="display:none;">
+        <h1>Planejamento de Aula</h1>
+
+        <input id="tema" placeholder="Tema da aula"><br><br>
+        <input id="objetivo" placeholder="Objetivo"><br><br>
+        <textarea id="conteudo" placeholder="Conteúdo"></textarea><br><br>
+
+        <button onclick="addPlano()">Adicionar Plano</button>
+
+        <div id="listaPlanos"></div>
+    </div>
+
 </div>
 
 <script src="index.js"></script>
-
 </body>
 </html>
