@@ -7,7 +7,7 @@
 
 <!-- LOGIN -->
 <div id="login">
-    <h1>Bem-vindo</h1>
+    <h1>Seja Bem-vindo</h1>
     <p>Portal de Gestão Escolar</p>
 
     <input id="usuario" placeholder="Usuário"><br><br>
@@ -41,7 +41,25 @@
 
     <div id="dashboard" style="display:none;">
         <h1>Dashboard</h1>
-        <p>Total de professores: <span id="totalProfessores">0</span></p>
+    
+        <div style="display:flex; gap:20px; margin-top:20px;">
+    
+            <div style="border:1px solid #ccc; padding:20px; width:150px;">
+                <h3>Professores</h3>
+                <p id="totalProfessores">0</p>
+            </div>
+    
+            <div style="border:1px solid #ccc; padding:20px; width:150px;">
+                <h3>Sugestões</h3>
+                <p id="totalSugestoes">0</p>
+            </div>
+    
+            <div style="border:1px solid #ccc; padding:20px; width:150px;">
+                <h3>Planejamentos</h3>
+                <p id="totalPlanos">0</p>
+            </div>
+    
+        </div>
     </div>
 
     <div id="professores" style="display:none;">
