@@ -2,9 +2,9 @@ let professores = [];
 let sugestoes = [];
 let planos = [];
 
-// LOGIN
 let usuarioLogado = "";
 
+// LOGIN
 function fazerLogin() {
     let user = document.getElementById("usuario").value;
     let senha = document.getElementById("senha").value;
@@ -16,9 +16,22 @@ function fazerLogin() {
 
     usuarioLogado = user;
 
-    document.getElementById("usuarioLogadoTexto").innerText = "Logado como: " + user;
+    document.getElementById("usuarioLogadoTexto").innerText =
+        "Logado como: " + user;
+
     document.getElementById("login").style.display = "none";
     document.getElementById("sistema").style.display = "block";
+}
+
+// LOGOUT
+function logout() {
+    usuarioLogado = "";
+
+    document.getElementById("login").style.display = "block";
+    document.getElementById("sistema").style.display = "none";
+
+    document.getElementById("usuario").value = "";
+    document.getElementById("senha").value = "";
 }
 
 // TROCAR TELA
@@ -117,4 +130,6 @@ function mostrarPlanos() {
 // DASHBOARD
 function atualizarDashboard() {
     document.getElementById("totalProfessores").innerText = professores.length;
+    document.getElementById("totalSugestoes").innerText = sugestoes.length;
+    document.getElementById("totalPlanos").innerText = planos.length;
 }
