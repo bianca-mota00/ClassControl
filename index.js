@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let professores = [];
 let sugestoes = [];
 let planos = [];
@@ -101,9 +100,9 @@ function addPlano() {
     if (!tema || !objetivo || !conteudo) return;
 
     planos.push({
-        tema: tema,
-        objetivo: objetivo,
-        conteudo: conteudo
+        tema,
+        objetivo,
+        conteudo
     });
 
     document.getElementById("tema").value = "";
@@ -134,69 +133,3 @@ function atualizarDashboard() {
     document.getElementById("totalSugestoes").innerText = sugestoes.length;
     document.getElementById("totalPlanos").innerText = planos.length;
 }
-=======
-let professores = [];
-let sugestoes = [];
-
-// TROCAR TELA
-function trocarTela(tela) {
-    let telas = ['home', 'dashboard', 'professores', 'participacao'];
-
-    telas.forEach(t => {
-        document.getElementById(t).style.display = 'none';
-    });
-
-    document.getElementById(tela).style.display = 'block';
-
-    atualizarDashboard();
-}
-
-// PROFESSORES
-function addProfessor() {
-    let nome = document.getElementById("nomeProfessor").value;
-
-    if (!nome) return;
-
-    professores.push(nome);
-
-    document.getElementById("nomeProfessor").value = "";
-
-    mostrarProfessores();
-}
-
-function mostrarProfessores() {
-    let lista = document.getElementById("listaProfessores");
-    lista.innerHTML = "";
-
-    professores.forEach(p => {
-        lista.innerHTML += `<div>${p}</div>`;
-    });
-}
-
-// PARTICIPAÇÃO
-function addSugestao() {
-    let texto = document.getElementById("textoSugestao").value;
-
-    if (!texto) return;
-
-    sugestoes.push(texto);
-
-    document.getElementById("textoSugestao").value = "";
-
-    mostrarSugestoes();
-}
-
-function mostrarSugestoes() {
-    let lista = document.getElementById("listaSugestoes");
-    lista.innerHTML = "";
-
-    sugestoes.forEach(s => {
-        lista.innerHTML += `<div>${s}</div>`;
-    });
-}
-
-// DASHBOARD
-function atualizarDashboard() {
-    document.getElementById("totalProfessores").innerText = professores.length;
-}
->>>>>>> e7f3bfa1009748feef79845e7a8742e98b8a214e
