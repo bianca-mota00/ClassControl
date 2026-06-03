@@ -32,9 +32,11 @@
     <div class="menu">
         <div class="sidebar">
 
-            <h2>ClassControl</h2>
+            <img src="logo.png" class="logo-menu">
         
-            <button onclick="trocarTela('home')">🏠 Início</button>
+            <button onclick="trocarTela('home')">
+                🏠 Início
+            </button>
         
             <button onclick="trocarTela('dashboard')">
                 📊 Indicadores
@@ -49,11 +51,7 @@
             </button>
         
             <button onclick="trocarTela('participacao')">
-                💬 Participação Escolar
-            </button>
-        
-            <button onclick="trocarTela('relatorios')">
-                📄 Relatórios
+                💬 Participação
             </button>
         
         </div>
@@ -64,37 +62,51 @@
 
     <div id="home">
 
-        <h1>Portal de Gestão Escolar</h1>
+        <div class="pagina-home">
     
-        <p>
-            Sistema desenvolvido para apoiar a gestão escolar,
-            planejamento pedagógico e participação da comunidade escolar.
-        </p>
+            <!-- MENU ESQUERDA -->
+            <div class="sidebar">
     
-        <h3>Objetivos do Sistema</h3>
+                <img src="logo.png" class="logo-menu">
     
-        <ul>
-            <li>Melhorar a organização escolar</li>
-            <li>Facilitar o planejamento docente</li>
-            <li>Promover a gestão democrática</li>
-            <li>Apoiar a tomada de decisões</li>
-        </ul>
+                <button onclick="trocarTela('home')">🏠 Início</button>
+                <button onclick="trocarTela('dashboard')">📊 Indicadores</button>
+                <button onclick="trocarTela('professores')">👨‍🏫 Professores</button>
+                <button onclick="trocarTela('planejamento')">📚 Planejamento</button>
+                <button onclick="trocarTela('participacao')">💬 Participação</button>
     
-        <div class="atalhos">
-    
-            <div class="card">
-                <h3>👨‍🏫 Professores</h3>
-                <p>Gerencie os professores cadastrados.</p>
             </div>
     
-            <div class="card">
-                <h3>📚 Planejamento</h3>
-                <p>Cadastre e acompanhe planejamentos.</p>
+            <!-- CENTRO -->
+            <div class="home-centro">
+    
+                <div class="objetivos">
+    
+                    <h2>Objetivos do Projeto</h2>
+    
+                    <ul>
+                        <li>Melhorar a organização escolar</li>
+                        <li>Facilitar o planejamento docente</li>
+                        <li>Promover a gestão democrática</li>
+                        <li>Apoiar a tomada de decisões</li>
+                        <li>Fortalecer a participação da comunidade escolar</li>
+                    </ul>
+    
+                </div>
+    
             </div>
     
-            <div class="card">
-                <h3>💬 Participação</h3>
-                <p>Sugestões e colaboração escolar.</p>
+            <!-- DIREITA -->
+            <div class="home-direita">
+    
+                <div class="img-home">
+                    Imagem da Escola
+                </div>
+    
+                <div class="img-home">
+                    Imagem dos Professores
+                </div>
+    
             </div>
     
         </div>
