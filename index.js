@@ -36,19 +36,36 @@ function logout() {
 
 // TROCAR TELA
 function trocarTela(tela) {
-    let telas = ['home', 'dashboard', 'professores', 'participacao', 'planejamento'];
+
+    let telas = [
+        "home",
+        "dashboard",
+        "professores",
+        "participacao",
+        "planejamento",
+        "relatorios"
+    ];
 
     telas.forEach(t => {
-        document.getElementById(t).style.display = 'none';
+        let elemento = document.getElementById(t);
+
+        if (elemento) {
+            elemento.style.display = "none";
+        }
     });
 
-    document.getElementById(tela).style.display = 'block';
+    let telaSelecionada = document.getElementById(tela);
+
+    if (telaSelecionada) {
+        telaSelecionada.style.display = "block";
+    }
 
     atualizarDashboard();
 }
 
 // PROFESSORES
 function addProfessor() {
+
     let nome = document.getElementById("nomeProfessor").value;
 
     if (!nome) return;
@@ -61,16 +78,36 @@ function addProfessor() {
 }
 
 function mostrarProfessores() {
+
     let lista = document.getElementById("listaProfessores");
+
     lista.innerHTML = "";
 
-    professores.forEach(p => {
-        lista.innerHTML += `<div>${p}</div>`;
+    professores.forEach((p, index) => {
+
+        lista.innerHTML += `
+            <div>
+                ${p}
+                <button onclick="removerProfessor(${index})">
+                    Excluir
+                </button>
+            </div>
+        `;
     });
+
+    atualizarDashboard();
 }
 
-// PARTICIPAÇÃO
+function removerProfessor(index) {
+
+    professores.splice(index, 1);
+
+    mostrarProfessores();
+}
+
+// SUGESTÕES
 function addSugestao() {
+
     let texto = document.getElementById("textoSugestao").value;
 
     if (!texto) return;
@@ -83,16 +120,36 @@ function addSugestao() {
 }
 
 function mostrarSugestoes() {
+
     let lista = document.getElementById("listaSugestoes");
+
     lista.innerHTML = "";
 
-    sugestoes.forEach(s => {
-        lista.innerHTML += `<div>${s}</div>`;
+    sugestoes.forEach((s, index) => {
+
+        lista.innerHTML += `
+            <div>
+                ${s}
+                <button onclick="removerSugestao(${index})">
+                    Excluir
+                </button>
+            </div>
+        `;
     });
+
+    atualizarDashboard();
+}
+
+function removerSugestao(index) {
+
+    sugestoes.splice(index, 1);
+
+    mostrarSugestoes();
 }
 
 // PLANEJAMENTO
 function addPlano() {
+
     let tema = document.getElementById("tema").value;
     let objetivo = document.getElementById("objetivo").value;
     let conteudo = document.getElementById("conteudo").value;
@@ -113,23 +170,52 @@ function addPlano() {
 }
 
 function mostrarPlanos() {
+
     let lista = document.getElementById("listaPlanos");
+
     lista.innerHTML = "";
 
-    planos.forEach(p => {
+    planos.forEach((p, index) => {
+
         lista.innerHTML += `
             <div>
                 <strong>${p.tema}</strong><br>
                 Objetivo: ${p.objetivo}<br>
                 Conteúdo: ${p.conteudo}<br><br>
+
+                <button onclick="removerPlano(${index})">
+                    Excluir
+                </button>
             </div>
         `;
     });
+
+    atualizarDashboard();
+}
+
+function removerPlano(index) {
+
+    planos.splice(index, 1);
+
+    mostrarPlanos();
 }
 
 // DASHBOARD
 function atualizarDashboard() {
-    document.getElementById("totalProfessores").innerText = professores.length;
-    document.getElementById("totalSugestoes").innerText = sugestoes.length;
-    document.getElementById("totalPlanos").innerText = planos.length;
+
+    let professoresEl = document.getElementById("totalProfessores");
+    let sugestoesEl = document.getElementById("totalSugestoes");
+    let planosEl = document.getElementById("totalPlanos");
+
+    if (professoresEl) {
+        professoresEl.innerText = professores.length;
+    }
+
+    if (sugestoesEl) {
+        sugestoesEl.innerText = sugestoes.length;
+    }
+
+    if (planosEl) {
+        planosEl.innerText = planos.length;
+    }
 }
