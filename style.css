@@ -158,9 +158,10 @@ textarea{
 }
 
 .logo-menu{
-    width:140px;
-    margin:0 auto 20px auto;
+    width:200px;
+    height:auto;
     display:block;
+    border:2px solid red;
 }
 
 .sidebar button{
